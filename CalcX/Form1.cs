@@ -36,6 +36,10 @@ namespace CalcX
             return jsonString;
         }
 
+        double usd = 0.0;
+        double cny = 0.0;
+        double eur = 0.0;
+
         public CalcX()
         {
             InitializeComponent();
@@ -44,17 +48,12 @@ namespace CalcX
             string response = webGetMethod(URL);
             var objects = JArray.Parse(response);
             string datum = "";
+            
 
             foreach (JProperty root in objects[0])
             {
-                //Console.WriteLine(root[0]);   //test log
                 foreach (JToken token in root)
                 {
-                    //Console.WriteLine(token);   //test log
-                    //string output = JsonConvert.SerializeObject(token[0]);
-                    //Currency deserializedProduct = JsonConvert.DeserializeObject<Currency>(output);
-                    //Console.WriteLine(deserializedProduct.Country);
-                    //------------------------------------------------ hore funguje
 
                     for (int i = 0; i < 18; i++)
                     {
@@ -64,18 +63,61 @@ namespace CalcX
                         {
                             datum = deserializedProduct1.RatesValidityDate;
                         }
-                        //Console.WriteLine(deserializedProduct1.CurrencyISO + " -> " + deserializedProduct1.Middle + "Kč");
                         textBox1.Text += Environment.NewLine + "1 " + deserializedProduct1.CurrencyISO + " -> " + deserializedProduct1.Middle + " CZK";
+                        if (deserializedProduct1.CurrencyISO == "USD")
+                        {
+                            usd = Convert.ToDouble(deserializedProduct1.Middle);
+                        }
+                        if (deserializedProduct1.CurrencyISO == "CNY")
+                        {
+                            cny = Convert.ToDouble(deserializedProduct1.Middle);
+                        }
+                        if (deserializedProduct1.CurrencyISO == "EUR")
+                        {
+                            eur = Convert.ToDouble(deserializedProduct1.Middle);
+                        }
                     }
                 }
             }
-            //Console.WriteLine("\nAktualizace: " + datum.Substring(0, 10));
             textBox1.Text += Environment.NewLine + Environment.NewLine + "Aktualizace:  " + datum.Substring(0, 10);
-            //Console.ReadLine();
         }
 
-        private void CalcX_Load(object sender, EventArgs e) { }
+        private void CalcX_Load(object sender, EventArgs e) {
+            comboBox1.SelectedIndex = 4;
+        }
 
         private void textBox1_TextChanged(object sender, EventArgs e) { }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verify that the pressed key isn't CTRL or any non-numeric digit
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
+            {
+                e.Handled = true;
+            }
+
+            // If you want, you can allow decimal (float) numbers
+            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            //textBox3.Text = Convert.ToString(e.KeyCode);
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox3.Text = Convert.ToString(Convert.ToDouble(textBox2.Text) * usd);
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+
+
+// numbers -> 96 - 105
