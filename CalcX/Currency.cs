@@ -36,10 +36,10 @@ namespace CalcX
             NoncashSell = noncashSell;
         }
 
-        public string CurrencyISO { get; init; }
+        public string CurrencyISO { get; }
         public string CurrencyShortName { get; }
         public string CurrencyFullName { get; }
-        public string Country { get; init; }
+        public string Country { get; }
         public string CountryISO { get; }
         public string RatesValidityDate { get; }
         public int CurrencyUnit { get; }

@@ -83,10 +83,9 @@ namespace CalcX
         }
 
         private void CalcX_Load(object sender, EventArgs e) {
-            comboBox1.SelectedIndex = 4;
+            comboBox1.SelectedIndex = 5;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e) { }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -105,10 +104,33 @@ namespace CalcX
 
         private void textBox2_KeyDown(object sender, KeyEventArgs e)
         {
-            //textBox3.Text = Convert.ToString(e.KeyCode);
             if (e.KeyCode == Keys.Enter)
             {
-                textBox3.Text = Convert.ToString(Convert.ToDouble(textBox2.Text) * usd);
+                switch (comboBox1.SelectedIndex)
+                {
+                    case 0:
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / usd, 4));
+                        break;
+                    case 1:
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * usd, 4));
+                        break;
+                    case 2:
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / eur, 4));
+                        break;
+                    case 3:
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * eur, 4));
+                        break;
+                    case 4:
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / cny, 4));
+                        break;
+                    case 5:
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * cny, 4));
+                        break;
+                    default:
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * 1, 4));
+                        break;
+                }
+                //textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * usd,4));
             }
         }
 
@@ -118,6 +140,11 @@ namespace CalcX
         }
     }
 }
-
-
-// numbers -> 96 - 105
+/*
+    0 - CZK -> USD
+    1 - USD -> CZK
+    2 - CZK -> EUR
+    3 - EUR -> CZK
+    4 - CNY -> CZK
+    5 - CZK -> CNY
+*/
