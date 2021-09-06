@@ -63,6 +63,7 @@ namespace CalcX
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -100,6 +101,7 @@ namespace CalcX
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.comboBox3);
             this.groupBox3.Controls.Add(this.textBox13);
             this.groupBox3.Controls.Add(this.checkBox2);
@@ -472,6 +474,18 @@ namespace CalcX
             this.textBox1.Size = new System.Drawing.Size(312, 442);
             this.textBox1.TabIndex = 0;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(27, 194);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(265, 38);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Výpočty prozatím s originálními kurzy\r\n(bez rezervy)";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // CalcX
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -536,6 +550,7 @@ namespace CalcX
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Label label3;
     }
 }
 

@@ -213,13 +213,13 @@ namespace CalcX {
 
         private void textBox5_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Enter && textBox5.TextLength != 0) {
-                textBox4.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox5.Text) * cny, 4));
+                textBox4.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox5.Text) * 1.05 * cny, 4));
             }
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e) {
             if (textBox5.TextLength != 0) {
-                textBox4.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox5.Text) * cny, 4));
+                textBox4.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox5.Text) * 1.05 * cny, 4));
             }
         }
 
@@ -230,7 +230,7 @@ namespace CalcX {
 
         private void textBox7_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Enter && textBox7.TextLength != 0) {
-                textBox6.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox7.Text) * usd, 4));
+                textBox6.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox7.Text) * 1.13 * 1.05 * usd, 4));
             }
         }
 
