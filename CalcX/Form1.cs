@@ -15,6 +15,8 @@ using System.Windows.Forms;
 namespace CalcX {
     public partial class CalcX : Form {
 
+        Meny meny;
+
         public CalcX() {
             InitializeComponent();
             mainHandler();
@@ -22,16 +24,37 @@ namespace CalcX {
 
         private void CalcX_Load(object sender, EventArgs e) {
             comboBox1.SelectedIndex = 4;
-            comboBox3.SelectedIndex = 1;
+            comboBox3.SelectedIndex = 0;
         }
 
 /* TODO:
+ * !! prejmenovat prvky podle ucelu uziti
  * natahnout vsechny meny
  * rozdelit combobox na dve (meny) a pak jen delit z leva do prava
+ * odstranit "KeyDown" u kazdeho textBoxu
+ * prekopat na pouziti struktury ... nebo mozna na 3 pole? (currencyISO, original kurz, kurz s rezervou)
  */
-        double usd = 0.0;
-        double cny = 0.0;
-        double eur = 0.0;
+
+        struct Meny {
+            public double aud;
+            public double bgn;
+            public double cad;
+            public double chf;
+            public double cny;
+            public double dkk;
+            public double eur;
+            public double gbp;
+            public double hrk;
+            public double huf;
+            public double jpy;
+            public double nok;
+            public double pln;
+            public double ron;
+            public double rub;
+            public double sek;
+            public double tryy;
+            public double usd;
+        }
 
         public string webGetMethod(string URL) {
             string jsonString = "";
@@ -67,17 +90,67 @@ namespace CalcX {
 
                         if (datum == "") datum = deserializedProduct1.RatesValidityDate;
 
-                        if (deserializedProduct1.CurrencyISO == "USD") {
-                            usd = Convert.ToDouble(deserializedProduct1.Middle);
-                        }
-                        else if (deserializedProduct1.CurrencyISO == "CNY") {
-                            cny = Convert.ToDouble(deserializedProduct1.Middle);
-                        }
-                        else if (deserializedProduct1.CurrencyISO == "EUR") {
-                            eur = Convert.ToDouble(deserializedProduct1.Middle);
-                        }
-                        else { }
+                        string mena = deserializedProduct1.CurrencyISO;
 
+                        switch (mena) {
+                            case "AUD":
+                                meny.aud = Convert.ToDouble(deserializedProduct1.Middle);
+                                break;
+                            case "BGN":
+                                meny.bgn = Convert.ToDouble(deserializedProduct1.Middle);
+                                break;
+                            case "CAD":
+                                meny.cad = Convert.ToDouble(deserializedProduct1.Middle);
+                                break;
+                            case "CHF":
+                                meny.chf = Convert.ToDouble(deserializedProduct1.Middle);
+                                break;
+                            case "CNY":
+                                meny.cny = Convert.ToDouble(deserializedProduct1.Middle);
+                                break;
+                            case "DKK":
+                                meny.dkk = Convert.ToDouble(deserializedProduct1.Middle);
+                                break;
+                            case "EUR":
+                                meny.eur = Convert.ToDouble(deserializedProduct1.Middle);
+                                break;
+                            case "GBP":
+                                meny.gbp = Convert.ToDouble(deserializedProduct1.Middle);
+                                break;
+                            case "HRK":
+                                meny.hrk = Convert.ToDouble(deserializedProduct1.Middle);
+                                break;
+                            case "HUF":
+                                meny.huf = Convert.ToDouble(deserializedProduct1.Middle);
+                                break;
+                            case "JPY":
+                                meny.jpy = Convert.ToDouble(deserializedProduct1.Middle);
+                                break;
+                            case "NOK":
+                                meny.nok = Convert.ToDouble(deserializedProduct1.Middle);
+                                break;
+                            case "PLN":
+                                meny.pln = Convert.ToDouble(deserializedProduct1.Middle);
+                                break;
+                            case "RON":
+                                meny.ron = Convert.ToDouble(deserializedProduct1.Middle);
+                                break;
+                            case "RUB":
+                                meny.rub = Convert.ToDouble(deserializedProduct1.Middle);
+                                break;
+                            case "SEK":
+                                meny.sek = Convert.ToDouble(deserializedProduct1.Middle);
+                                break;
+                            case "TRY":
+                                meny.tryy = Convert.ToDouble(deserializedProduct1.Middle);
+                                break;
+                            case "USD":
+                                meny.usd = Convert.ToDouble(deserializedProduct1.Middle);
+                                break;
+                            default:
+                                break;
+                        }
+                        
                         textBox1.Text += "1 " + deserializedProduct1.CurrencyISO + "  =  " + deserializedProduct1.Middle + " CZK" + Environment.NewLine;
                         textBox12.Text += "1 " + deserializedProduct1.CurrencyISO + "  =  " + Convert.ToString(Math.Round(Convert.ToDouble(deserializedProduct1.Middle) + 0.2, 4)) + " CZK" + Environment.NewLine;
                     }
@@ -109,22 +182,25 @@ namespace CalcX {
             if (e.KeyCode == Keys.Enter && textBox2.TextLength != 0) {
                 switch (comboBox1.SelectedIndex) {
                     case 0:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * usd, 4));
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * meny.usd, 4));
                         break;
                     case 1:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / usd, 4));
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / meny.usd, 4));
                         break;
                     case 2:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * eur, 4));
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * meny.eur, 4));
                         break;
                     case 3:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / eur, 4));
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / meny.eur, 4));
                         break;
                     case 4:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * cny, 4));
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * meny.cny, 4));
                         break;
                     case 5:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / cny, 4));
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / meny.cny, 4));
+                        break;
+                    case 6:
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * meny.gbp, 4));
                         break;
                     default:
                         MessageBox.Show("Špatný vstup...", "Chyba!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -142,22 +218,25 @@ namespace CalcX {
 
                 switch (comboBox1.SelectedIndex) {
                     case 0:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * usd, 4));
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * meny.usd, 4));
                         break;
                     case 1:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / usd, 4));
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / meny.usd, 4));
                         break;
                     case 2:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * eur, 4));
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * meny.eur, 4));
                         break;
                     case 3:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / eur, 4));
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / meny.eur, 4));
                         break;
                     case 4:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * cny, 4));
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * meny.cny, 4));
                         break;
                     case 5:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / cny, 4));
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / meny.cny, 4));
+                        break;
+                    case 6:
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * meny.gbp, 4));
                         break;
                     default:
                         MessageBox.Show("Špatný vstup...", "Chyba!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -213,13 +292,13 @@ namespace CalcX {
 
         private void textBox5_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Enter && textBox5.TextLength != 0) {
-                textBox4.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox5.Text) * 1.05 * cny, 4));
+                textBox4.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox5.Text) * 1.05 * meny.cny, 4));
             }
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e) {
             if (textBox5.TextLength != 0) {
-                textBox4.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox5.Text) * 1.05 * cny, 4));
+                textBox4.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox5.Text) * 1.05 * meny.cny, 4));
             }
         }
 
@@ -230,26 +309,45 @@ namespace CalcX {
 
         private void textBox7_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Enter && textBox7.TextLength != 0) {
-                textBox6.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox7.Text) * 1.13 * 1.05 * usd, 4));
+                textBox6.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox7.Text) * 1.13 * 1.05 * meny.usd, 4));
             }
         }
 
         private void textBox7_TextChanged(object sender, EventArgs e) {
             if (textBox7.TextLength != 0) {
-                textBox6.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox7.Text) * usd, 4));
+                textBox6.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox7.Text) * meny.usd, 4));
             }
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e) {
-            if (checkBox2.Checked)
-            {
+            if (checkBox2.Checked) {
                 textBox13.Visible = true;
                 comboBox3.Visible = true;
             }
-            else
-            {
+            else {
                 textBox13.Visible = false;
                 comboBox3.Visible = false;
+            }
+        }
+
+        private void textBox13_TextChanged(object sender, EventArgs e) {
+            if (textBox13.TextLength != 0) {
+                textBox13.Text = Convert.ToString(Convert.ToDouble(textBox13.Text));
+                tabPage3.Text = "Kurzy + " + textBox13.Text + comboBox3.SelectedItem;
+                textBox12.Refresh();
+            }
+        }
+
+        private void textBox13_KeyPress(object sender, KeyPressEventArgs e) {
+            if (kontrolaVstupu(sender, e.KeyChar)) e.Handled = true;
+            if (e.KeyChar == ',') if (kontrolaDesetinnychMist(sender, e.KeyChar) == true) e.Handled = true;
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e) {
+            if (textBox13.TextLength != 0) {
+                textBox13.Text = Convert.ToString(Convert.ToDouble(textBox13.Text));
+                tabPage3.Text = "Kurzy + " + textBox13.Text + comboBox3.SelectedItem;
+                textBox12.Refresh();
             }
         }
     }

@@ -33,6 +33,7 @@ namespace CalcX
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -63,7 +64,6 @@ namespace CalcX
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -121,6 +121,18 @@ namespace CalcX
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Kalkulátor";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(27, 194);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(265, 38);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Výpočty prozatím s originálními kurzy\r\n(bez rezervy)";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // comboBox3
             // 
             this.comboBox3.AutoCompleteCustomSource.AddRange(new string[] {
@@ -136,6 +148,7 @@ namespace CalcX
             this.comboBox3.Size = new System.Drawing.Size(62, 23);
             this.comboBox3.TabIndex = 29;
             this.comboBox3.Visible = false;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // textBox13
             // 
@@ -143,9 +156,11 @@ namespace CalcX
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(56, 23);
             this.textBox13.TabIndex = 27;
-            this.textBox13.Text = "2";
+            this.textBox13.Text = "0,2";
             this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox13.Visible = false;
+            this.textBox13.TextChanged += new System.EventHandler(this.textBox13_TextChanged);
+            this.textBox13.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox13_KeyPress);
             // 
             // checkBox2
             // 
@@ -171,7 +186,8 @@ namespace CalcX
             "EUR -> CZK",
             "CZK -> EUR",
             "CNY -> CZK",
-            "CZK -> CNY"});
+            "CZK -> CNY",
+            "GBP -> CZK"});
             this.comboBox1.Location = new System.Drawing.Point(49, 28);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(223, 23);
@@ -474,18 +490,6 @@ namespace CalcX
             this.textBox1.Size = new System.Drawing.Size(312, 442);
             this.textBox1.TabIndex = 0;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(27, 194);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(265, 38);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "Výpočty prozatím s originálními kurzy\r\n(bez rezervy)";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // CalcX
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -497,7 +501,7 @@ namespace CalcX
             this.MaximizeBox = false;
             this.Name = "CalcX";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CalcX";
+            this.Text = "CalcX - Vývojová verze";
             this.Load += new System.EventHandler(this.CalcX_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
