@@ -59,31 +59,33 @@ namespace CalcX
                     {
                         string output1 = JsonConvert.SerializeObject(token[i]);
                         Currency deserializedProduct1 = JsonConvert.DeserializeObject<Currency>(output1);
-                        if (datum == "")
-                        {
+                        if (datum == ""){
                             datum = deserializedProduct1.RatesValidityDate;
                         }
-                        textBox1.Text += Environment.NewLine + "1 " + deserializedProduct1.CurrencyISO + " -> " + deserializedProduct1.Middle + " CZK";
-                        if (deserializedProduct1.CurrencyISO == "USD")
-                        {
+                        
+                        if (deserializedProduct1.CurrencyISO == "USD"){
                             usd = Convert.ToDouble(deserializedProduct1.Middle);
+                            textBox1.Text += "1 " + deserializedProduct1.CurrencyISO + "  =  " + deserializedProduct1.Middle + " CZK" + Environment.NewLine;
                         }
-                        if (deserializedProduct1.CurrencyISO == "CNY")
-                        {
+                        else if (deserializedProduct1.CurrencyISO == "CNY"){
                             cny = Convert.ToDouble(deserializedProduct1.Middle);
+                            textBox1.Text += "1 " + deserializedProduct1.CurrencyISO + "  =  " + deserializedProduct1.Middle + " CZK" + Environment.NewLine;
                         }
-                        if (deserializedProduct1.CurrencyISO == "EUR")
-                        {
+                        else if (deserializedProduct1.CurrencyISO == "EUR"){
                             eur = Convert.ToDouble(deserializedProduct1.Middle);
+                            textBox1.Text += "1 " + deserializedProduct1.CurrencyISO + "  =  " + deserializedProduct1.Middle + " CZK" + Environment.NewLine;
+                        }
+                        else {
+                            textBox1.Text += "1 " + deserializedProduct1.CurrencyISO + "  =  " + deserializedProduct1.Middle + " CZK" + Environment.NewLine;
                         }
                     }
                 }
             }
-            textBox1.Text += Environment.NewLine + Environment.NewLine + "Aktualizace:  " + datum.Substring(0, 10);
+            textBox1.Text += Environment.NewLine + "Aktualizace:  " + datum.Substring(0, 10);
         }
 
         private void CalcX_Load(object sender, EventArgs e) {
-            comboBox1.SelectedIndex = 5;
+            comboBox1.SelectedIndex = 4;
         }
 
 
@@ -109,25 +111,25 @@ namespace CalcX
                 switch (comboBox1.SelectedIndex)
                 {
                     case 0:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / usd, 4));
-                        break;
-                    case 1:
                         textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * usd, 4));
                         break;
-                    case 2:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / eur, 4));
+                    case 1:
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / usd, 4));
                         break;
-                    case 3:
+                    case 2:
                         textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * eur, 4));
                         break;
-                    case 4:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / cny, 4));
+                    case 3:
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / eur, 4));
                         break;
-                    case 5:
+                    case 4:
                         textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * cny, 4));
                         break;
+                    case 5:
+                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / cny, 4));
+                        break;
                     default:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * 1, 4));
+                        textBox3.Text = "Špatná volba!";
                         break;
                 }
                 //textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * usd,4));
@@ -137,6 +139,20 @@ namespace CalcX
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked){
+                textBox8.Enabled = true;
+                textBox10.Enabled = true;
+                button1.Enabled = true;
+            }
+            else {
+                textBox8.Enabled = false;
+                textBox10.Enabled = false;
+                button1.Enabled = false;
+            }
         }
     }
 }
