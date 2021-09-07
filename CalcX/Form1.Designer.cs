@@ -523,7 +523,7 @@ namespace CalcX
             this.MaximizeBox = false;
             this.Name = "CalcX";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CalcX - Vývojová verze  |  v0.3.3";
+            this.Text = "CalcX - Vývojová verze  |  v0.3.4";
             this.Load += new System.EventHandler(this.CalcX_Load);
             this.tabPage.ResumeLayout(false);
             this.tabPage_Kalk.ResumeLayout(false);
