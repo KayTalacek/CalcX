@@ -31,7 +31,6 @@ namespace CalcX {
  * pridat automatickou opravu prazdneho tBoxu -> na nulu
  * pocitat prevod podle dat ze struktury 
  * rozdelit combobox na dve (meny) a pak jen delit z leva do prava
- * odstranit "KeyDown" u kazdeho textBoxu
  * prekopat na pouziti struktury ... nebo mozna na 3 pole? (currencyISO, original kurz, kurz s rezervou)
  */
 
@@ -237,7 +236,7 @@ namespace CalcX {
         }
 
         private void btn_Hidden_Click(object sender, EventArgs e) {
-            if (tBox_Prava_Mena.TextLength != 0) {
+            if (tBox_Prava_Mena.TextLength != 0 && tBox_Prava_Mena.TextLength != 0) {
                 double procento = Convert.ToDouble(tBox_Procenta.Text) / 100.0;
                 double puvodniHodnota = Convert.ToDouble(tBox_Prava_Mena.Text);
                 tBox_Marze.Text = Convert.ToString(Math.Round(puvodniHodnota * (procento + 1), 4));
@@ -255,7 +254,10 @@ namespace CalcX {
         }
         private void tBox_Procenta_TextChanged(object sender, EventArgs e) {
             if (tBox_Procenta.TextLength != 0 && tBox_Prava_Mena.TextLength != 0){
-                tBox_Marze.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Prava_Mena.Text) * 1.05 * meny.cny, 4));
+                tBox_Procenta.Text = Convert.ToString(Convert.ToDouble(tBox_Procenta.Text));
+                double procento = Convert.ToDouble(tBox_Procenta.Text) / 100.0;
+                double puvodniHodnota = Convert.ToDouble(tBox_Prava_Mena.Text);
+                tBox_Marze.Text = Convert.ToString(Math.Round(puvodniHodnota * (procento + 1), 4));
             }
         }
 

@@ -167,7 +167,8 @@ namespace CalcX
             // chBox_Rezerva
             // 
             this.chBox_Rezerva.AutoSize = true;
-            this.chBox_Rezerva.Enabled = false;
+            this.chBox_Rezerva.Checked = true;
+            this.chBox_Rezerva.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chBox_Rezerva.Location = new System.Drawing.Point(13, 268);
             this.chBox_Rezerva.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.chBox_Rezerva.Name = "chBox_Rezerva";
@@ -523,7 +524,7 @@ namespace CalcX
             this.MaximizeBox = false;
             this.Name = "CalcX";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CalcX - Vývojová verze  |  v0.3.6";
+            this.Text = "CalcX - Vývojová verze  |  v0.3.7";
             this.Load += new System.EventHandler(this.CalcX_Load);
             this.tabPage.ResumeLayout(false);
             this.tabPage_Kalk.ResumeLayout(false);
