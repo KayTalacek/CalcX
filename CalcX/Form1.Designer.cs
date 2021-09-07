@@ -30,96 +30,96 @@ namespace CalcX
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CalcX));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tabPage = new System.Windows.Forms.TabControl();
+            this.tabPage_Kalk = new System.Windows.Forms.TabPage();
+            this.gBox_Kalk = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.copyBTN = new System.Windows.Forms.Button();
+            this.comBox_Rezerva = new System.Windows.Forms.ComboBox();
+            this.tBox_Rezerva = new System.Windows.Forms.TextBox();
+            this.chBox_Rezerva = new System.Windows.Forms.CheckBox();
+            this.comBox_Meny = new System.Windows.Forms.ComboBox();
+            this.tBox_Leva_Mena = new System.Windows.Forms.TextBox();
+            this.tBox_Prava_Mena = new System.Windows.Forms.TextBox();
+            this.btn_Copy = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.btn_Hidden = new System.Windows.Forms.Button();
+            this.tBox_Marze = new System.Windows.Forms.TextBox();
+            this.chBox_Marze = new System.Windows.Forms.CheckBox();
+            this.tBox_Procenta = new System.Windows.Forms.TextBox();
+            this.gBox_Leo_CN = new System.Windows.Forms.GroupBox();
+            this.tBox_Leo_CN_CZK = new System.Windows.Forms.TextBox();
+            this.tBox_Leo_CN_CNY = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label_CN_CNY = new System.Windows.Forms.Label();
+            this.label_CN_CZK = new System.Windows.Forms.Label();
+            this.gBox_Leo_HK = new System.Windows.Forms.GroupBox();
+            this.tBox_Leo_HK_CZK = new System.Windows.Forms.TextBox();
+            this.tBox_Leo_HK_USD = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.label_HK_CZK = new System.Windows.Forms.Label();
+            this.label_HK_USD = new System.Windows.Forms.Label();
+            this.tabPage_Kurzy_Marze = new System.Windows.Forms.TabPage();
+            this.tBox_Kurzy_Marze_Update = new System.Windows.Forms.TextBox();
+            this.tBox_Kurzy_Marze_Kurzy = new System.Windows.Forms.TextBox();
+            this.tabPage_Kurzy = new System.Windows.Forms.TabPage();
+            this.tBox_Kurzy_Update = new System.Windows.Forms.TextBox();
+            this.tBox_Kurzy_Kurzy = new System.Windows.Forms.TextBox();
+            this.tabPage.SuspendLayout();
+            this.tabPage_Kalk.SuspendLayout();
+            this.gBox_Kalk.SuspendLayout();
+            this.gBox_Leo_CN.SuspendLayout();
+            this.gBox_Leo_HK.SuspendLayout();
+            this.tabPage_Kurzy_Marze.SuspendLayout();
+            this.tabPage_Kurzy.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabPage
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tabControl1.Location = new System.Drawing.Point(4, 3);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(331, 507);
-            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.tabControl1.TabIndex = 0;
+            this.tabPage.Controls.Add(this.tabPage_Kalk);
+            this.tabPage.Controls.Add(this.tabPage_Kurzy_Marze);
+            this.tabPage.Controls.Add(this.tabPage_Kurzy);
+            this.tabPage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tabPage.Location = new System.Drawing.Point(4, 3);
+            this.tabPage.Name = "tabPage";
+            this.tabPage.SelectedIndex = 0;
+            this.tabPage.Size = new System.Drawing.Size(331, 507);
+            this.tabPage.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tabPage.TabIndex = 0;
             // 
-            // tabPage1
+            // tabPage_Kalk
             // 
-            this.tabPage1.Controls.Add(this.groupBox3);
-            this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(323, 479);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Kalkulačka";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage_Kalk.Controls.Add(this.gBox_Kalk);
+            this.tabPage_Kalk.Controls.Add(this.gBox_Leo_CN);
+            this.tabPage_Kalk.Controls.Add(this.gBox_Leo_HK);
+            this.tabPage_Kalk.Location = new System.Drawing.Point(4, 24);
+            this.tabPage_Kalk.Name = "tabPage_Kalk";
+            this.tabPage_Kalk.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_Kalk.Size = new System.Drawing.Size(323, 479);
+            this.tabPage_Kalk.TabIndex = 0;
+            this.tabPage_Kalk.Text = "Kalkulačka";
+            this.tabPage_Kalk.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
+            // gBox_Kalk
             // 
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.comboBox3);
-            this.groupBox3.Controls.Add(this.textBox13);
-            this.groupBox3.Controls.Add(this.checkBox2);
-            this.groupBox3.Controls.Add(this.comboBox1);
-            this.groupBox3.Controls.Add(this.textBox2);
-            this.groupBox3.Controls.Add(this.textBox3);
-            this.groupBox3.Controls.Add(this.copyBTN);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.textBox8);
-            this.groupBox3.Controls.Add(this.checkBox1);
-            this.groupBox3.Controls.Add(this.textBox10);
-            this.groupBox3.Location = new System.Drawing.Point(0, 3);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(321, 295);
-            this.groupBox3.TabIndex = 28;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Kalkulátor";
+            this.gBox_Kalk.Controls.Add(this.label3);
+            this.gBox_Kalk.Controls.Add(this.comBox_Rezerva);
+            this.gBox_Kalk.Controls.Add(this.tBox_Rezerva);
+            this.gBox_Kalk.Controls.Add(this.chBox_Rezerva);
+            this.gBox_Kalk.Controls.Add(this.comBox_Meny);
+            this.gBox_Kalk.Controls.Add(this.tBox_Leva_Mena);
+            this.gBox_Kalk.Controls.Add(this.tBox_Prava_Mena);
+            this.gBox_Kalk.Controls.Add(this.btn_Copy);
+            this.gBox_Kalk.Controls.Add(this.label1);
+            this.gBox_Kalk.Controls.Add(this.btn_Hidden);
+            this.gBox_Kalk.Controls.Add(this.tBox_Marze);
+            this.gBox_Kalk.Controls.Add(this.chBox_Marze);
+            this.gBox_Kalk.Controls.Add(this.tBox_Procenta);
+            this.gBox_Kalk.Location = new System.Drawing.Point(0, 3);
+            this.gBox_Kalk.Name = "gBox_Kalk";
+            this.gBox_Kalk.Size = new System.Drawing.Size(321, 295);
+            this.gBox_Kalk.TabIndex = 28;
+            this.gBox_Kalk.TabStop = false;
+            this.gBox_Kalk.Text = "Kalkulátor";
             // 
             // label3
             // 
@@ -133,97 +133,96 @@ namespace CalcX
             this.label3.Text = "Výpočty prozatím s originálními kurzy\r\n(bez rezervy)";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBox3
+            // comBox_Rezerva
             // 
-            this.comboBox3.AutoCompleteCustomSource.AddRange(new string[] {
+            this.comBox_Rezerva.AutoCompleteCustomSource.AddRange(new string[] {
             "CZK",
             "%"});
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.comboBox3.Items.AddRange(new object[] {
+            this.comBox_Rezerva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comBox_Rezerva.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.comBox_Rezerva.Items.AddRange(new object[] {
             "CZK",
             "%"});
-            this.comboBox3.Location = new System.Drawing.Point(200, 269);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(62, 23);
-            this.comboBox3.TabIndex = 29;
-            this.comboBox3.Visible = false;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            this.comBox_Rezerva.Location = new System.Drawing.Point(200, 269);
+            this.comBox_Rezerva.Name = "comBox_Rezerva";
+            this.comBox_Rezerva.Size = new System.Drawing.Size(62, 23);
+            this.comBox_Rezerva.TabIndex = 29;
+            this.comBox_Rezerva.Visible = false;
+            this.comBox_Rezerva.SelectedIndexChanged += new System.EventHandler(this.comBox_Rezerva_SelectedIndexChanged);
             // 
-            // textBox13
+            // tBox_Rezerva
             // 
-            this.textBox13.Location = new System.Drawing.Point(138, 269);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(56, 23);
-            this.textBox13.TabIndex = 27;
-            this.textBox13.Text = "0,2";
-            this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox13.Visible = false;
-            this.textBox13.TextChanged += new System.EventHandler(this.textBox13_TextChanged);
-            this.textBox13.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox13_KeyPress);
+            this.tBox_Rezerva.Location = new System.Drawing.Point(138, 269);
+            this.tBox_Rezerva.Name = "tBox_Rezerva";
+            this.tBox_Rezerva.Size = new System.Drawing.Size(56, 23);
+            this.tBox_Rezerva.TabIndex = 27;
+            this.tBox_Rezerva.Text = "0,2";
+            this.tBox_Rezerva.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tBox_Rezerva.Visible = false;
+            this.tBox_Rezerva.TextChanged += new System.EventHandler(this.tBox_Rezerva_TextChanged);
+            this.tBox_Rezerva.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBox_Rezerva_KeyPress);
             // 
-            // checkBox2
+            // chBox_Rezerva
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Enabled = false;
-            this.checkBox2.Location = new System.Drawing.Point(6, 271);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(119, 19);
-            this.checkBox2.TabIndex = 26;
-            this.checkBox2.Text = "Počítat s rezervou";
-            this.checkBox2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            this.chBox_Rezerva.AutoSize = true;
+            this.chBox_Rezerva.Enabled = false;
+            this.chBox_Rezerva.Location = new System.Drawing.Point(6, 271);
+            this.chBox_Rezerva.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.chBox_Rezerva.Name = "chBox_Rezerva";
+            this.chBox_Rezerva.Size = new System.Drawing.Size(119, 19);
+            this.chBox_Rezerva.TabIndex = 26;
+            this.chBox_Rezerva.Text = "Počítat s rezervou";
+            this.chBox_Rezerva.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.chBox_Rezerva.UseVisualStyleBackColor = true;
+            this.chBox_Rezerva.CheckedChanged += new System.EventHandler(this.chBox_Rezerva_CheckedChanged);
             // 
-            // comboBox1
+            // comBox_Meny
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comBox_Meny.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comBox_Meny.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.comBox_Meny.Items.AddRange(new object[] {
             "USD -> CZK",
             "CZK -> USD",
             "EUR -> CZK",
             "CZK -> EUR",
             "CNY -> CZK",
             "CZK -> CNY",
-            "GBP -> CZK"});
-            this.comboBox1.Location = new System.Drawing.Point(49, 28);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(223, 23);
-            this.comboBox1.TabIndex = 4;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            "CNY -> USD"});
+            this.comBox_Meny.Location = new System.Drawing.Point(49, 28);
+            this.comBox_Meny.Name = "comBox_Meny";
+            this.comBox_Meny.Size = new System.Drawing.Size(223, 23);
+            this.comBox_Meny.TabIndex = 4;
+            this.comBox_Meny.SelectedIndexChanged += new System.EventHandler(this.comBox_Meny_SelectedIndexChanged);
             // 
-            // textBox2
+            // tBox_Leva_Mena
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBox2.Location = new System.Drawing.Point(48, 57);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(96, 23);
-            this.textBox2.TabIndex = 0;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
-            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
+            this.tBox_Leva_Mena.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tBox_Leva_Mena.Location = new System.Drawing.Point(48, 57);
+            this.tBox_Leva_Mena.Name = "tBox_Leva_Mena";
+            this.tBox_Leva_Mena.Size = new System.Drawing.Size(96, 23);
+            this.tBox_Leva_Mena.TabIndex = 0;
+            this.tBox_Leva_Mena.TextChanged += new System.EventHandler(this.tBox_Leva_Mena_TextChanged);
+            this.tBox_Leva_Mena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBox_Leva_Mena_KeyPress);
             // 
-            // textBox3
+            // tBox_Prava_Mena
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBox3.Location = new System.Drawing.Point(176, 57);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(96, 23);
-            this.textBox3.TabIndex = 1;
-            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
+            this.tBox_Prava_Mena.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tBox_Prava_Mena.Location = new System.Drawing.Point(176, 57);
+            this.tBox_Prava_Mena.Name = "tBox_Prava_Mena";
+            this.tBox_Prava_Mena.Size = new System.Drawing.Size(96, 23);
+            this.tBox_Prava_Mena.TabIndex = 1;
+            this.tBox_Prava_Mena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBox_Prava_Mena_KeyPress);
             // 
-            // copyBTN
+            // btn_Copy
             // 
-            this.copyBTN.Location = new System.Drawing.Point(187, 140);
-            this.copyBTN.Name = "copyBTN";
-            this.copyBTN.Size = new System.Drawing.Size(75, 23);
-            this.copyBTN.TabIndex = 25;
-            this.copyBTN.Text = "Kopírovat";
-            this.copyBTN.UseVisualStyleBackColor = true;
-            this.copyBTN.Visible = false;
-            this.copyBTN.Click += new System.EventHandler(this.copyBTN_Click);
+            this.btn_Copy.Location = new System.Drawing.Point(187, 140);
+            this.btn_Copy.Name = "btn_Copy";
+            this.btn_Copy.Size = new System.Drawing.Size(75, 23);
+            this.btn_Copy.TabIndex = 25;
+            this.btn_Copy.Text = "Kopírovat";
+            this.btn_Copy.UseVisualStyleBackColor = true;
+            this.btn_Copy.Visible = false;
+            this.btn_Copy.Click += new System.EventHandler(this.btn_Copy_Click);
             // 
             // label1
             // 
@@ -235,92 +234,92 @@ namespace CalcX
             this.label1.Text = "->";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // btn_Hidden
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(108, 111);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button1.Size = new System.Drawing.Size(62, 23);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "%    --->";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_Hidden.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Hidden.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_Hidden.FlatAppearance.BorderSize = 0;
+            this.btn_Hidden.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_Hidden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Hidden.Location = new System.Drawing.Point(108, 111);
+            this.btn_Hidden.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Hidden.Name = "btn_Hidden";
+            this.btn_Hidden.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_Hidden.Size = new System.Drawing.Size(62, 23);
+            this.btn_Hidden.TabIndex = 24;
+            this.btn_Hidden.Text = "%    --->";
+            this.btn_Hidden.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Hidden.UseVisualStyleBackColor = false;
+            this.btn_Hidden.Visible = false;
+            this.btn_Hidden.Click += new System.EventHandler(this.btn_Hidden_Click);
             // 
-            // textBox8
+            // tBox_Marze
             // 
-            this.textBox8.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBox8.Location = new System.Drawing.Point(176, 111);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(96, 23);
-            this.textBox8.TabIndex = 18;
-            this.textBox8.Visible = false;
+            this.tBox_Marze.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tBox_Marze.Location = new System.Drawing.Point(176, 111);
+            this.tBox_Marze.Name = "tBox_Marze";
+            this.tBox_Marze.ReadOnly = true;
+            this.tBox_Marze.Size = new System.Drawing.Size(96, 23);
+            this.tBox_Marze.TabIndex = 18;
+            this.tBox_Marze.Visible = false;
             // 
-            // checkBox1
+            // chBox_Marze
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(48, 90);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(104, 19);
-            this.checkBox1.TabIndex = 22;
-            this.checkBox1.Text = "Připočíst marži";
-            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.chBox_Marze.AutoSize = true;
+            this.chBox_Marze.Location = new System.Drawing.Point(48, 90);
+            this.chBox_Marze.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.chBox_Marze.Name = "chBox_Marze";
+            this.chBox_Marze.Size = new System.Drawing.Size(104, 19);
+            this.chBox_Marze.TabIndex = 22;
+            this.chBox_Marze.Text = "Připočíst marži";
+            this.chBox_Marze.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.chBox_Marze.UseVisualStyleBackColor = true;
+            this.chBox_Marze.CheckedChanged += new System.EventHandler(this.chBox_Marze_CheckedChanged);
             // 
-            // textBox10
+            // tBox_Procenta
             // 
-            this.textBox10.Location = new System.Drawing.Point(49, 111);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(56, 23);
-            this.textBox10.TabIndex = 21;
-            this.textBox10.Text = "10";
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox10.Visible = false;
-            this.textBox10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox10_KeyPress);
+            this.tBox_Procenta.Location = new System.Drawing.Point(49, 111);
+            this.tBox_Procenta.Name = "tBox_Procenta";
+            this.tBox_Procenta.Size = new System.Drawing.Size(56, 23);
+            this.tBox_Procenta.TabIndex = 21;
+            this.tBox_Procenta.Text = "10";
+            this.tBox_Procenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tBox_Procenta.Visible = false;
+            this.tBox_Procenta.TextChanged += new System.EventHandler(this.tBox_Procenta_TextChanged);
+            this.tBox_Procenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBox_Procenta_KeyPress);
             // 
-            // groupBox2
+            // gBox_Leo_CN
             // 
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.textBox5);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Location = new System.Drawing.Point(0, 304);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(321, 84);
-            this.groupBox2.TabIndex = 27;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Výpočet ceny Leoš - CN";
+            this.gBox_Leo_CN.Controls.Add(this.tBox_Leo_CN_CZK);
+            this.gBox_Leo_CN.Controls.Add(this.tBox_Leo_CN_CNY);
+            this.gBox_Leo_CN.Controls.Add(this.label2);
+            this.gBox_Leo_CN.Controls.Add(this.label_CN_CNY);
+            this.gBox_Leo_CN.Controls.Add(this.label_CN_CZK);
+            this.gBox_Leo_CN.Location = new System.Drawing.Point(0, 304);
+            this.gBox_Leo_CN.Name = "gBox_Leo_CN";
+            this.gBox_Leo_CN.Size = new System.Drawing.Size(321, 84);
+            this.gBox_Leo_CN.TabIndex = 27;
+            this.gBox_Leo_CN.TabStop = false;
+            this.gBox_Leo_CN.Text = "Výpočet ceny Leoš - CN";
             // 
-            // textBox4
+            // tBox_Leo_CN_CZK
             // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBox4.Location = new System.Drawing.Point(176, 36);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(96, 23);
-            this.textBox4.TabIndex = 6;
+            this.tBox_Leo_CN_CZK.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tBox_Leo_CN_CZK.Location = new System.Drawing.Point(176, 36);
+            this.tBox_Leo_CN_CZK.Name = "tBox_Leo_CN_CZK";
+            this.tBox_Leo_CN_CZK.ReadOnly = true;
+            this.tBox_Leo_CN_CZK.Size = new System.Drawing.Size(96, 23);
+            this.tBox_Leo_CN_CZK.TabIndex = 6;
             // 
-            // textBox5
+            // tBox_Leo_CN_CNY
             // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBox5.Location = new System.Drawing.Point(48, 36);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(96, 23);
-            this.textBox5.TabIndex = 5;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
-            this.textBox5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox5_KeyDown);
-            this.textBox5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox5_KeyPress);
+            this.tBox_Leo_CN_CNY.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tBox_Leo_CN_CNY.Location = new System.Drawing.Point(48, 36);
+            this.tBox_Leo_CN_CNY.Name = "tBox_Leo_CN_CNY";
+            this.tBox_Leo_CN_CNY.Size = new System.Drawing.Size(96, 23);
+            this.tBox_Leo_CN_CNY.TabIndex = 5;
+            this.tBox_Leo_CN_CNY.TextChanged += new System.EventHandler(this.tBox_Leo_CN_CNY_TextChanged);
+            this.tBox_Leo_CN_CNY.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBox_Leo_CN_CNY_KeyPress);
             // 
             // label2
             // 
@@ -332,61 +331,60 @@ namespace CalcX
             this.label2.Text = "->";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label6
+            // label_CN_CNY
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(5, 37);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 19);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "CNY";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label_CN_CNY.AutoSize = true;
+            this.label_CN_CNY.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_CN_CNY.Location = new System.Drawing.Point(5, 37);
+            this.label_CN_CNY.Name = "label_CN_CNY";
+            this.label_CN_CNY.Size = new System.Drawing.Size(38, 19);
+            this.label_CN_CNY.TabIndex = 13;
+            this.label_CN_CNY.Text = "CNY";
+            this.label_CN_CNY.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label7
+            // label_CN_CZK
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(278, 37);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(36, 19);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "CZK";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_CN_CZK.AutoSize = true;
+            this.label_CN_CZK.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_CN_CZK.Location = new System.Drawing.Point(278, 37);
+            this.label_CN_CZK.Name = "label_CN_CZK";
+            this.label_CN_CZK.Size = new System.Drawing.Size(36, 19);
+            this.label_CN_CZK.TabIndex = 14;
+            this.label_CN_CZK.Text = "CZK";
+            this.label_CN_CZK.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // groupBox1
+            // gBox_Leo_HK
             // 
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.textBox7);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Location = new System.Drawing.Point(0, 394);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(321, 84);
-            this.groupBox1.TabIndex = 26;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Výpočet ceny Leoš - HK";
+            this.gBox_Leo_HK.Controls.Add(this.tBox_Leo_HK_CZK);
+            this.gBox_Leo_HK.Controls.Add(this.tBox_Leo_HK_USD);
+            this.gBox_Leo_HK.Controls.Add(this.label5);
+            this.gBox_Leo_HK.Controls.Add(this.label_HK_CZK);
+            this.gBox_Leo_HK.Controls.Add(this.label_HK_USD);
+            this.gBox_Leo_HK.Location = new System.Drawing.Point(0, 394);
+            this.gBox_Leo_HK.Name = "gBox_Leo_HK";
+            this.gBox_Leo_HK.Size = new System.Drawing.Size(321, 84);
+            this.gBox_Leo_HK.TabIndex = 26;
+            this.gBox_Leo_HK.TabStop = false;
+            this.gBox_Leo_HK.Text = "Výpočet ceny Leoš - HK";
             // 
-            // textBox6
+            // tBox_Leo_HK_CZK
             // 
-            this.textBox6.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBox6.Location = new System.Drawing.Point(176, 35);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(96, 23);
-            this.textBox6.TabIndex = 10;
+            this.tBox_Leo_HK_CZK.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tBox_Leo_HK_CZK.Location = new System.Drawing.Point(176, 35);
+            this.tBox_Leo_HK_CZK.Name = "tBox_Leo_HK_CZK";
+            this.tBox_Leo_HK_CZK.ReadOnly = true;
+            this.tBox_Leo_HK_CZK.Size = new System.Drawing.Size(96, 23);
+            this.tBox_Leo_HK_CZK.TabIndex = 10;
             // 
-            // textBox7
+            // tBox_Leo_HK_USD
             // 
-            this.textBox7.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBox7.Location = new System.Drawing.Point(48, 35);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(96, 23);
-            this.textBox7.TabIndex = 9;
-            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
-            this.textBox7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox7_KeyDown);
-            this.textBox7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox7_KeyPress);
+            this.tBox_Leo_HK_USD.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tBox_Leo_HK_USD.Location = new System.Drawing.Point(48, 35);
+            this.tBox_Leo_HK_USD.Name = "tBox_Leo_HK_USD";
+            this.tBox_Leo_HK_USD.Size = new System.Drawing.Size(96, 23);
+            this.tBox_Leo_HK_USD.TabIndex = 9;
+            this.tBox_Leo_HK_USD.TextChanged += new System.EventHandler(this.tBox_Leo_HK_USD_TextChanged);
+            this.tBox_Leo_HK_USD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBox_Leo_HK_USD_KeyPress);
             // 
             // label5
             // 
@@ -398,104 +396,104 @@ namespace CalcX
             this.label5.Text = "->";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label8
+            // label_HK_CZK
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(278, 36);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(36, 19);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "CZK";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_HK_CZK.AutoSize = true;
+            this.label_HK_CZK.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_HK_CZK.Location = new System.Drawing.Point(278, 36);
+            this.label_HK_CZK.Name = "label_HK_CZK";
+            this.label_HK_CZK.Size = new System.Drawing.Size(36, 19);
+            this.label_HK_CZK.TabIndex = 15;
+            this.label_HK_CZK.Text = "CZK";
+            this.label_HK_CZK.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label9
+            // label_HK_USD
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(5, 36);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(37, 19);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "USD";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label_HK_USD.AutoSize = true;
+            this.label_HK_USD.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_HK_USD.Location = new System.Drawing.Point(5, 36);
+            this.label_HK_USD.Name = "label_HK_USD";
+            this.label_HK_USD.Size = new System.Drawing.Size(37, 19);
+            this.label_HK_USD.TabIndex = 16;
+            this.label_HK_USD.Text = "USD";
+            this.label_HK_USD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // tabPage3
+            // tabPage_Kurzy_Marze
             // 
-            this.tabPage3.Controls.Add(this.textBox11);
-            this.tabPage3.Controls.Add(this.textBox12);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(323, 479);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Kurzy + 0,2CZK";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage_Kurzy_Marze.Controls.Add(this.tBox_Kurzy_Marze_Update);
+            this.tabPage_Kurzy_Marze.Controls.Add(this.tBox_Kurzy_Marze_Kurzy);
+            this.tabPage_Kurzy_Marze.Location = new System.Drawing.Point(4, 24);
+            this.tabPage_Kurzy_Marze.Name = "tabPage_Kurzy_Marze";
+            this.tabPage_Kurzy_Marze.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_Kurzy_Marze.Size = new System.Drawing.Size(323, 479);
+            this.tabPage_Kurzy_Marze.TabIndex = 2;
+            this.tabPage_Kurzy_Marze.Text = "Kurzy + 0,2CZK";
+            this.tabPage_Kurzy_Marze.UseVisualStyleBackColor = true;
             // 
-            // textBox11
+            // tBox_Kurzy_Marze_Update
             // 
-            this.textBox11.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox11.Location = new System.Drawing.Point(5, 454);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.ReadOnly = true;
-            this.textBox11.Size = new System.Drawing.Size(312, 20);
-            this.textBox11.TabIndex = 3;
+            this.tBox_Kurzy_Marze_Update.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.tBox_Kurzy_Marze_Update.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tBox_Kurzy_Marze_Update.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tBox_Kurzy_Marze_Update.Location = new System.Drawing.Point(5, 454);
+            this.tBox_Kurzy_Marze_Update.Name = "tBox_Kurzy_Marze_Update";
+            this.tBox_Kurzy_Marze_Update.ReadOnly = true;
+            this.tBox_Kurzy_Marze_Update.Size = new System.Drawing.Size(312, 20);
+            this.tBox_Kurzy_Marze_Update.TabIndex = 3;
             // 
-            // textBox12
+            // tBox_Kurzy_Marze_Kurzy
             // 
-            this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox12.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox12.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox12.Location = new System.Drawing.Point(5, 6);
-            this.textBox12.Multiline = true;
-            this.textBox12.Name = "textBox12";
-            this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(312, 442);
-            this.textBox12.TabIndex = 2;
+            this.tBox_Kurzy_Marze_Kurzy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tBox_Kurzy_Marze_Kurzy.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tBox_Kurzy_Marze_Kurzy.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tBox_Kurzy_Marze_Kurzy.Location = new System.Drawing.Point(5, 6);
+            this.tBox_Kurzy_Marze_Kurzy.Multiline = true;
+            this.tBox_Kurzy_Marze_Kurzy.Name = "tBox_Kurzy_Marze_Kurzy";
+            this.tBox_Kurzy_Marze_Kurzy.ReadOnly = true;
+            this.tBox_Kurzy_Marze_Kurzy.Size = new System.Drawing.Size(312, 442);
+            this.tBox_Kurzy_Marze_Kurzy.TabIndex = 2;
             // 
-            // tabPage2
+            // tabPage_Kurzy
             // 
-            this.tabPage2.Controls.Add(this.textBox9);
-            this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(323, 479);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Kurzy";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage_Kurzy.Controls.Add(this.tBox_Kurzy_Update);
+            this.tabPage_Kurzy.Controls.Add(this.tBox_Kurzy_Kurzy);
+            this.tabPage_Kurzy.Location = new System.Drawing.Point(4, 24);
+            this.tabPage_Kurzy.Name = "tabPage_Kurzy";
+            this.tabPage_Kurzy.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_Kurzy.Size = new System.Drawing.Size(323, 479);
+            this.tabPage_Kurzy.TabIndex = 1;
+            this.tabPage_Kurzy.Text = "Kurzy";
+            this.tabPage_Kurzy.UseVisualStyleBackColor = true;
             // 
-            // textBox9
+            // tBox_Kurzy_Update
             // 
-            this.textBox9.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox9.Location = new System.Drawing.Point(5, 454);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(312, 20);
-            this.textBox9.TabIndex = 1;
+            this.tBox_Kurzy_Update.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.tBox_Kurzy_Update.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tBox_Kurzy_Update.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tBox_Kurzy_Update.Location = new System.Drawing.Point(5, 454);
+            this.tBox_Kurzy_Update.Name = "tBox_Kurzy_Update";
+            this.tBox_Kurzy_Update.ReadOnly = true;
+            this.tBox_Kurzy_Update.Size = new System.Drawing.Size(312, 20);
+            this.tBox_Kurzy_Update.TabIndex = 1;
             // 
-            // textBox1
+            // tBox_Kurzy_Kurzy
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(5, 6);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(312, 442);
-            this.textBox1.TabIndex = 0;
+            this.tBox_Kurzy_Kurzy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tBox_Kurzy_Kurzy.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tBox_Kurzy_Kurzy.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tBox_Kurzy_Kurzy.Location = new System.Drawing.Point(5, 6);
+            this.tBox_Kurzy_Kurzy.Multiline = true;
+            this.tBox_Kurzy_Kurzy.Name = "tBox_Kurzy_Kurzy";
+            this.tBox_Kurzy_Kurzy.ReadOnly = true;
+            this.tBox_Kurzy_Kurzy.Size = new System.Drawing.Size(312, 442);
+            this.tBox_Kurzy_Kurzy.TabIndex = 0;
             // 
             // CalcX
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(337, 513);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabPage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -503,57 +501,57 @@ namespace CalcX
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CalcX - Vývojová verze";
             this.Load += new System.EventHandler(this.CalcX_Load);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tabPage.ResumeLayout(false);
+            this.tabPage_Kalk.ResumeLayout(false);
+            this.gBox_Kalk.ResumeLayout(false);
+            this.gBox_Kalk.PerformLayout();
+            this.gBox_Leo_CN.ResumeLayout(false);
+            this.gBox_Leo_CN.PerformLayout();
+            this.gBox_Leo_HK.ResumeLayout(false);
+            this.gBox_Leo_HK.PerformLayout();
+            this.tabPage_Kurzy_Marze.ResumeLayout(false);
+            this.tabPage_Kurzy_Marze.PerformLayout();
+            this.tabPage_Kurzy.ResumeLayout(false);
+            this.tabPage_Kurzy.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TabControl tabPage;
+        private System.Windows.Forms.TabPage tabPage_Kalk;
+        private System.Windows.Forms.TabPage tabPage_Kurzy;
+        private System.Windows.Forms.TextBox tBox_Kurzy_Kurzy;
+        private System.Windows.Forms.TextBox tBox_Leva_Mena;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox tBox_Prava_Mena;
+        private System.Windows.Forms.ComboBox comBox_Meny;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tBox_Leo_CN_CZK;
+        private System.Windows.Forms.TextBox tBox_Leo_CN_CNY;
+        private System.Windows.Forms.Label label_HK_USD;
+        private System.Windows.Forms.Label label_HK_CZK;
+        private System.Windows.Forms.Label label_CN_CZK;
+        private System.Windows.Forms.Label label_CN_CNY;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button copyBTN;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.TextBox tBox_Leo_HK_CZK;
+        private System.Windows.Forms.TextBox tBox_Leo_HK_USD;
+        private System.Windows.Forms.TextBox tBox_Procenta;
+        private System.Windows.Forms.TextBox tBox_Marze;
+        private System.Windows.Forms.CheckBox chBox_Marze;
+        private System.Windows.Forms.Button btn_Hidden;
+        private System.Windows.Forms.Button btn_Copy;
+        private System.Windows.Forms.TextBox tBox_Kurzy_Update;
+        private System.Windows.Forms.TabPage tabPage_Kurzy_Marze;
+        private System.Windows.Forms.GroupBox gBox_Leo_CN;
+        private System.Windows.Forms.GroupBox gBox_Leo_HK;
+        private System.Windows.Forms.GroupBox gBox_Kalk;
+        private System.Windows.Forms.TextBox tBox_Kurzy_Marze_Update;
+        private System.Windows.Forms.TextBox tBox_Kurzy_Marze_Kurzy;
+        private System.Windows.Forms.ComboBox comBox_Rezerva;
+        private System.Windows.Forms.TextBox tBox_Rezerva;
+        private System.Windows.Forms.CheckBox chBox_Rezerva;
         private System.Windows.Forms.Label label3;
     }
 }

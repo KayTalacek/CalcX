@@ -23,13 +23,13 @@ namespace CalcX {
         }
 
         private void CalcX_Load(object sender, EventArgs e) {
-            comboBox1.SelectedIndex = 4;
-            comboBox3.SelectedIndex = 0;
+            comBox_Meny.SelectedIndex = 4;
+            comBox_Rezerva.SelectedIndex = 0;
         }
 
 /* TODO:
- * !! prejmenovat prvky podle ucelu uziti
- * natahnout vsechny meny
+ * pridat automatickou opravu prazdneho tBoxu -> na nulu
+ * pocitat prevod podle dat ze struktury 
  * rozdelit combobox na dve (meny) a pak jen delit z leva do prava
  * odstranit "KeyDown" u kazdeho textBoxu
  * prekopat na pouziti struktury ... nebo mozna na 3 pole? (currencyISO, original kurz, kurz s rezervou)
@@ -73,6 +73,7 @@ namespace CalcX {
             sr.Close();
             return jsonString;
         }
+
         public void mainHandler() {
             string URL = "https://api.kb.cz/openapi/v1/exchange-rates";
             string response = webGetMethod(URL);
@@ -151,13 +152,13 @@ namespace CalcX {
                                 break;
                         }
                         
-                        textBox1.Text += "1 " + deserializedProduct1.CurrencyISO + "  =  " + deserializedProduct1.Middle + " CZK" + Environment.NewLine;
-                        textBox12.Text += "1 " + deserializedProduct1.CurrencyISO + "  =  " + Convert.ToString(Math.Round(Convert.ToDouble(deserializedProduct1.Middle) + 0.2, 4)) + " CZK" + Environment.NewLine;
+                        tBox_Kurzy_Kurzy.Text += "1 " + deserializedProduct1.CurrencyISO + "  =  " + deserializedProduct1.Middle + " CZK" + Environment.NewLine;
+                        tBox_Kurzy_Marze_Kurzy.Text += "1 " + deserializedProduct1.CurrencyISO + "  =  " + Convert.ToString(Math.Round(Convert.ToDouble(deserializedProduct1.Middle) + 0.2, 4)) + " CZK" + Environment.NewLine;
                     }
                 }
             }
-            textBox9.Text += "Aktualizace:  " + datum.Substring(0, 10);
-            textBox11.Text += "Aktualizace:  " + datum.Substring(0, 10);
+            tBox_Kurzy_Update.Text += "Aktualizace:  " + datum.Substring(0, 10);
+            tBox_Kurzy_Marze_Update.Text += "Aktualizace:  " + datum.Substring(0, 10);
         }
 
         public bool kontrolaVstupu(object sender, char znak) {
@@ -170,184 +171,145 @@ namespace CalcX {
             else return false;
         }
 
-        private void textBox2_KeyPress(object sender, KeyPressEventArgs e) {
+        public void kontrolaPrazdnehoBoxu(object sender) { }
+
+        private void tBox_Leva_Mena_KeyPress(object sender, KeyPressEventArgs e) {
             if (kontrolaVstupu(sender, e.KeyChar)) e.Handled = true;
             if (e.KeyChar == ',') if (kontrolaDesetinnychMist(sender, e.KeyChar) == true) e.Handled = true;
         }
 
-/* TODO:
- * automaticky prevod
- */
-        private void textBox2_KeyDown(object sender, KeyEventArgs e) {
-            if (e.KeyCode == Keys.Enter && textBox2.TextLength != 0) {
-                switch (comboBox1.SelectedIndex) {
-                    case 0:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * meny.usd, 4));
-                        break;
-                    case 1:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / meny.usd, 4));
-                        break;
-                    case 2:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * meny.eur, 4));
-                        break;
-                    case 3:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / meny.eur, 4));
-                        break;
-                    case 4:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * meny.cny, 4));
-                        break;
-                    case 5:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / meny.cny, 4));
-                        break;
-                    case 6:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * meny.gbp, 4));
-                        break;
-                    default:
-                        MessageBox.Show("Špatný vstup...", "Chyba!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        break;
-                }
-            }
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e) {
-            if (textBox2.TextLength != 0) {
+        private void tBox_Leva_Mena_TextChanged(object sender, EventArgs e) {
+            if (tBox_Leva_Mena.TextLength != 0) {
                 double procenta = 1.0;
-                if (textBox10.TextLength != 0) {
-                    procenta = (Convert.ToDouble(textBox10.Text) / 100) + 1;
+                if (tBox_Procenta.TextLength != 0) {
+                    procenta = (Convert.ToDouble(tBox_Procenta.Text) / 100) + 1;
                 }
 
-                switch (comboBox1.SelectedIndex) {
+                switch (comBox_Meny.SelectedIndex) {
                     case 0:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * meny.usd, 4));
+                        tBox_Prava_Mena.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leva_Mena.Text) * meny.usd, 4));
                         break;
                     case 1:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / meny.usd, 4));
+                        tBox_Prava_Mena.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leva_Mena.Text) / meny.usd, 4));
                         break;
                     case 2:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * meny.eur, 4));
+                        tBox_Prava_Mena.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leva_Mena.Text) * meny.eur, 4));
                         break;
                     case 3:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / meny.eur, 4));
+                        tBox_Prava_Mena.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leva_Mena.Text) / meny.eur, 4));
                         break;
                     case 4:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * meny.cny, 4));
+                        tBox_Prava_Mena.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leva_Mena.Text) * meny.cny, 4));
                         break;
                     case 5:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) / meny.cny, 4));
+                        tBox_Prava_Mena.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leva_Mena.Text) / meny.cny, 4));
                         break;
                     case 6:
-                        textBox3.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox2.Text) * meny.gbp, 4));
+                        tBox_Prava_Mena.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leva_Mena.Text) * (meny.cny / meny.usd), 4));
                         break;
                     default:
                         MessageBox.Show("Špatný vstup...", "Chyba!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
-                textBox8.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox3.Text) * procenta, 4));
+                tBox_Marze.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Prava_Mena.Text) * procenta, 4));
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void comBox_Meny_SelectedIndexChanged(object sender, EventArgs e) { }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e) {
-            if (checkBox1.Checked){
-                textBox8.Visible = true;
-                textBox10.Visible = true;
-                button1.Visible = true;
-                copyBTN.Visible = true;
-            }
-            else {
-                textBox8.Visible = false;
-                textBox10.Visible = false;
-                button1.Visible = false;
-                copyBTN.Visible = false;
-            }
-        }
-
-        private void copyBTN_Click(object sender, EventArgs e) {
-            if (textBox8.TextLength != 0) Clipboard.SetText(textBox8.Text);
-        }
-
-        private void button1_Click(object sender, EventArgs e) {
-            if (textBox3.TextLength != 0) {
-                double procento = Convert.ToDouble(textBox10.Text) / 100.0;
-                double puvodniHodnota = Convert.ToDouble(textBox3.Text);
-                textBox8.Text = Convert.ToString(Math.Round(puvodniHodnota * (procento + 1), 4));
-            }
-        }
-
-        private void textBox3_KeyPress(object sender, KeyPressEventArgs e) {
-            if (kontrolaVstupu(sender, e.KeyChar)) e.Handled = true;
-            if (e.KeyChar == ',') if (kontrolaDesetinnychMist(sender, e.KeyChar) == true) e.Handled = true;
-        }
-
-        private void textBox10_KeyPress(object sender, KeyPressEventArgs e) {
-            if (kontrolaVstupu(sender, e.KeyChar)) e.Handled = true;
-            if (e.KeyChar == ',') if (kontrolaDesetinnychMist(sender, e.KeyChar) == true) e.Handled = true;
-        }
-
-        private void textBox5_KeyPress(object sender, KeyPressEventArgs e) {
-            if (kontrolaVstupu(sender, e.KeyChar)) e.Handled = true;
-            if (e.KeyChar == ',') if (kontrolaDesetinnychMist(sender, e.KeyChar) == true) e.Handled = true;
-        }
-
-        private void textBox5_KeyDown(object sender, KeyEventArgs e) {
-            if (e.KeyCode == Keys.Enter && textBox5.TextLength != 0) {
-                textBox4.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox5.Text) * 1.05 * meny.cny, 4));
-            }
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e) {
-            if (textBox5.TextLength != 0) {
-                textBox4.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox5.Text) * 1.05 * meny.cny, 4));
-            }
-        }
-
-        private void textBox7_KeyPress(object sender, KeyPressEventArgs e) {
-            if (kontrolaVstupu(sender, e.KeyChar)) e.Handled = true;
-            if (e.KeyChar == ',') if (kontrolaDesetinnychMist(sender, e.KeyChar) == true) e.Handled = true;
-        }
-
-        private void textBox7_KeyDown(object sender, KeyEventArgs e) {
-            if (e.KeyCode == Keys.Enter && textBox7.TextLength != 0) {
-                textBox6.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox7.Text) * 1.13 * 1.05 * meny.usd, 4));
-            }
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e) {
-            if (textBox7.TextLength != 0) {
-                textBox6.Text = Convert.ToString(Math.Round(Convert.ToDouble(textBox7.Text) * meny.usd, 4));
-            }
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e) {
-            if (checkBox2.Checked) {
-                textBox13.Visible = true;
-                comboBox3.Visible = true;
+        private void chBox_Marze_CheckedChanged(object sender, EventArgs e) {
+            if (chBox_Marze.Checked){
+                tBox_Marze.Visible = true;
+                tBox_Procenta.Visible = true;
+                btn_Hidden.Visible = true;
+                btn_Copy.Visible = true;
             }
             else {
-                textBox13.Visible = false;
-                comboBox3.Visible = false;
+                tBox_Marze.Visible = false;
+                tBox_Procenta.Visible = false;
+                btn_Hidden.Visible = false;
+                btn_Copy.Visible = false;
             }
         }
 
-        private void textBox13_TextChanged(object sender, EventArgs e) {
-            if (textBox13.TextLength != 0) {
-                textBox13.Text = Convert.ToString(Convert.ToDouble(textBox13.Text));
-                tabPage3.Text = "Kurzy + " + textBox13.Text + comboBox3.SelectedItem;
-                textBox12.Refresh();
+        private void btn_Copy_Click(object sender, EventArgs e) {
+            if (tBox_Marze.TextLength != 0) Clipboard.SetText(tBox_Marze.Text);
+        }
+
+        private void btn_Hidden_Click(object sender, EventArgs e) {
+            if (tBox_Prava_Mena.TextLength != 0) {
+                double procento = Convert.ToDouble(tBox_Procenta.Text) / 100.0;
+                double puvodniHodnota = Convert.ToDouble(tBox_Prava_Mena.Text);
+                tBox_Marze.Text = Convert.ToString(Math.Round(puvodniHodnota * (procento + 1), 4));
             }
         }
 
-        private void textBox13_KeyPress(object sender, KeyPressEventArgs e) {
+        private void tBox_Prava_Mena_KeyPress(object sender, KeyPressEventArgs e) {
             if (kontrolaVstupu(sender, e.KeyChar)) e.Handled = true;
             if (e.KeyChar == ',') if (kontrolaDesetinnychMist(sender, e.KeyChar) == true) e.Handled = true;
         }
 
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e) {
-            if (textBox13.TextLength != 0) {
-                textBox13.Text = Convert.ToString(Convert.ToDouble(textBox13.Text));
-                tabPage3.Text = "Kurzy + " + textBox13.Text + comboBox3.SelectedItem;
-                textBox12.Refresh();
+        private void tBox_Procenta_KeyPress(object sender, KeyPressEventArgs e) {
+            if (kontrolaVstupu(sender, e.KeyChar)) e.Handled = true;
+            if (e.KeyChar == ',') if (kontrolaDesetinnychMist(sender, e.KeyChar) == true) e.Handled = true;
+        }
+        private void tBox_Procenta_TextChanged(object sender, EventArgs e) {
+            if (tBox_Procenta.TextLength != 0 && tBox_Prava_Mena.TextLength != 0){
+                tBox_Marze.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Prava_Mena.Text) * 1.05 * meny.cny, 4));
+            }
+        }
+
+        private void tBox_Leo_CN_CNY_KeyPress(object sender, KeyPressEventArgs e) {
+            if (kontrolaVstupu(sender, e.KeyChar)) e.Handled = true;
+            if (e.KeyChar == ',') if (kontrolaDesetinnychMist(sender, e.KeyChar) == true) e.Handled = true;
+        }
+
+        private void tBox_Leo_CN_CNY_TextChanged(object sender, EventArgs e) {
+            if (tBox_Leo_CN_CNY.TextLength != 0) {
+                tBox_Leo_CN_CZK.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leo_CN_CNY.Text) * 1.05 * meny.cny, 4));
+            }
+        }
+
+        private void tBox_Leo_HK_USD_KeyPress(object sender, KeyPressEventArgs e) {
+            if (kontrolaVstupu(sender, e.KeyChar)) e.Handled = true;
+            if (e.KeyChar == ',') if (kontrolaDesetinnychMist(sender, e.KeyChar) == true) e.Handled = true;
+        }
+
+        private void tBox_Leo_HK_USD_TextChanged(object sender, EventArgs e) {
+            if (tBox_Leo_HK_USD.TextLength != 0) {
+                tBox_Leo_HK_CZK.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leo_HK_USD.Text) * meny.usd * 1.13 * 1.05, 4));
+            }
+        }
+
+        private void chBox_Rezerva_CheckedChanged(object sender, EventArgs e) {
+            if (chBox_Rezerva.Checked) {
+                tBox_Rezerva.Visible = true;
+                comBox_Rezerva.Visible = true;
+            }
+            else {
+                tBox_Rezerva.Visible = false;
+                comBox_Rezerva.Visible = false;
+            }
+        }
+
+        private void tBox_Rezerva_TextChanged(object sender, EventArgs e) {
+            if (tBox_Rezerva.TextLength != 0) {
+                tBox_Rezerva.Text = Convert.ToString(Convert.ToDouble(tBox_Rezerva.Text));
+                tabPage_Kurzy_Marze.Text = "Kurzy + " + tBox_Rezerva.Text + comBox_Rezerva.SelectedItem;
+                tBox_Kurzy_Marze_Kurzy.Refresh();
+            }
+        }
+
+        private void tBox_Rezerva_KeyPress(object sender, KeyPressEventArgs e) {
+            if (kontrolaVstupu(sender, e.KeyChar)) e.Handled = true;
+            if (e.KeyChar == ',') if (kontrolaDesetinnychMist(sender, e.KeyChar) == true) e.Handled = true;
+        }
+
+        private void comBox_Rezerva_SelectedIndexChanged(object sender, EventArgs e) {
+            if (tBox_Rezerva.TextLength != 0) {
+                tBox_Rezerva.Text = Convert.ToString(Convert.ToDouble(tBox_Rezerva.Text));
+                tabPage_Kurzy_Marze.Text = "Kurzy + " + tBox_Rezerva.Text + comBox_Rezerva.SelectedItem;
+                tBox_Kurzy_Marze_Kurzy.Refresh();
             }
         }
     }
