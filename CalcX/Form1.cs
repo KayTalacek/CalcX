@@ -312,5 +312,13 @@ namespace CalcX {
                 tBox_Kurzy_Marze_Kurzy.Refresh();
             }
         }
+
+        private void btn_Copy_CN_Click(object sender, EventArgs e) {
+            if (tBox_Leo_CN_CZK.TextLength != 0) Clipboard.SetText(tBox_Leo_CN_CZK.Text);
+        }
+
+        private void btn_Copy_HK_Click(object sender, EventArgs e) {
+            if (tBox_Leo_HK_CZK.TextLength != 0) Clipboard.SetText(tBox_Leo_HK_CZK.Text);
+        }
     }
 }

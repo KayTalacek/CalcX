@@ -47,12 +47,14 @@ namespace CalcX
             this.chBox_Marze = new System.Windows.Forms.CheckBox();
             this.tBox_Procenta = new System.Windows.Forms.TextBox();
             this.gBox_Leo_CN = new System.Windows.Forms.GroupBox();
+            this.btn_Copy_CN = new System.Windows.Forms.Button();
             this.tBox_Leo_CN_CZK = new System.Windows.Forms.TextBox();
             this.tBox_Leo_CN_CNY = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label_CN_CNY = new System.Windows.Forms.Label();
             this.label_CN_CZK = new System.Windows.Forms.Label();
             this.gBox_Leo_HK = new System.Windows.Forms.GroupBox();
+            this.btn_Copy_HK = new System.Windows.Forms.Button();
             this.tBox_Leo_HK_CZK = new System.Windows.Forms.TextBox();
             this.tBox_Leo_HK_USD = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -126,7 +128,7 @@ namespace CalcX
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(27, 194);
+            this.label3.Location = new System.Drawing.Point(28, 192);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(265, 38);
             this.label3.TabIndex = 30;
@@ -143,7 +145,7 @@ namespace CalcX
             this.comBox_Rezerva.Items.AddRange(new object[] {
             "CZK",
             "%"});
-            this.comBox_Rezerva.Location = new System.Drawing.Point(200, 269);
+            this.comBox_Rezerva.Location = new System.Drawing.Point(200, 266);
             this.comBox_Rezerva.Name = "comBox_Rezerva";
             this.comBox_Rezerva.Size = new System.Drawing.Size(62, 23);
             this.comBox_Rezerva.TabIndex = 29;
@@ -152,7 +154,7 @@ namespace CalcX
             // 
             // tBox_Rezerva
             // 
-            this.tBox_Rezerva.Location = new System.Drawing.Point(138, 269);
+            this.tBox_Rezerva.Location = new System.Drawing.Point(138, 266);
             this.tBox_Rezerva.Name = "tBox_Rezerva";
             this.tBox_Rezerva.Size = new System.Drawing.Size(56, 23);
             this.tBox_Rezerva.TabIndex = 27;
@@ -166,7 +168,7 @@ namespace CalcX
             // 
             this.chBox_Rezerva.AutoSize = true;
             this.chBox_Rezerva.Enabled = false;
-            this.chBox_Rezerva.Location = new System.Drawing.Point(6, 271);
+            this.chBox_Rezerva.Location = new System.Drawing.Point(13, 268);
             this.chBox_Rezerva.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.chBox_Rezerva.Name = "chBox_Rezerva";
             this.chBox_Rezerva.Size = new System.Drawing.Size(119, 19);
@@ -188,9 +190,9 @@ namespace CalcX
             "CNY -> CZK",
             "CZK -> CNY",
             "CNY -> USD"});
-            this.comBox_Meny.Location = new System.Drawing.Point(49, 28);
+            this.comBox_Meny.Location = new System.Drawing.Point(48, 28);
             this.comBox_Meny.Name = "comBox_Meny";
-            this.comBox_Meny.Size = new System.Drawing.Size(223, 23);
+            this.comBox_Meny.Size = new System.Drawing.Size(224, 23);
             this.comBox_Meny.TabIndex = 4;
             this.comBox_Meny.SelectedIndexChanged += new System.EventHandler(this.comBox_Meny_SelectedIndexChanged);
             // 
@@ -215,7 +217,7 @@ namespace CalcX
             // 
             // btn_Copy
             // 
-            this.btn_Copy.Location = new System.Drawing.Point(187, 140);
+            this.btn_Copy.Location = new System.Drawing.Point(186, 137);
             this.btn_Copy.Name = "btn_Copy";
             this.btn_Copy.Size = new System.Drawing.Size(75, 23);
             this.btn_Copy.TabIndex = 25;
@@ -241,11 +243,11 @@ namespace CalcX
             this.btn_Hidden.FlatAppearance.BorderSize = 0;
             this.btn_Hidden.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_Hidden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Hidden.Location = new System.Drawing.Point(108, 111);
+            this.btn_Hidden.Location = new System.Drawing.Point(107, 108);
             this.btn_Hidden.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Hidden.Name = "btn_Hidden";
             this.btn_Hidden.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btn_Hidden.Size = new System.Drawing.Size(62, 23);
+            this.btn_Hidden.Size = new System.Drawing.Size(66, 23);
             this.btn_Hidden.TabIndex = 24;
             this.btn_Hidden.Text = "%    --->";
             this.btn_Hidden.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -256,7 +258,7 @@ namespace CalcX
             // tBox_Marze
             // 
             this.tBox_Marze.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tBox_Marze.Location = new System.Drawing.Point(176, 111);
+            this.tBox_Marze.Location = new System.Drawing.Point(176, 109);
             this.tBox_Marze.Name = "tBox_Marze";
             this.tBox_Marze.ReadOnly = true;
             this.tBox_Marze.Size = new System.Drawing.Size(96, 23);
@@ -266,7 +268,7 @@ namespace CalcX
             // chBox_Marze
             // 
             this.chBox_Marze.AutoSize = true;
-            this.chBox_Marze.Location = new System.Drawing.Point(48, 90);
+            this.chBox_Marze.Location = new System.Drawing.Point(48, 86);
             this.chBox_Marze.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.chBox_Marze.Name = "chBox_Marze";
             this.chBox_Marze.Size = new System.Drawing.Size(104, 19);
@@ -278,7 +280,7 @@ namespace CalcX
             // 
             // tBox_Procenta
             // 
-            this.tBox_Procenta.Location = new System.Drawing.Point(49, 111);
+            this.tBox_Procenta.Location = new System.Drawing.Point(48, 109);
             this.tBox_Procenta.Name = "tBox_Procenta";
             this.tBox_Procenta.Size = new System.Drawing.Size(56, 23);
             this.tBox_Procenta.TabIndex = 21;
@@ -290,6 +292,7 @@ namespace CalcX
             // 
             // gBox_Leo_CN
             // 
+            this.gBox_Leo_CN.Controls.Add(this.btn_Copy_CN);
             this.gBox_Leo_CN.Controls.Add(this.tBox_Leo_CN_CZK);
             this.gBox_Leo_CN.Controls.Add(this.tBox_Leo_CN_CNY);
             this.gBox_Leo_CN.Controls.Add(this.label2);
@@ -302,10 +305,20 @@ namespace CalcX
             this.gBox_Leo_CN.TabStop = false;
             this.gBox_Leo_CN.Text = "Výpočet ceny Leoš - CN";
             // 
+            // btn_Copy_CN
+            // 
+            this.btn_Copy_CN.Location = new System.Drawing.Point(187, 51);
+            this.btn_Copy_CN.Name = "btn_Copy_CN";
+            this.btn_Copy_CN.Size = new System.Drawing.Size(75, 23);
+            this.btn_Copy_CN.TabIndex = 31;
+            this.btn_Copy_CN.Text = "Kopírovat";
+            this.btn_Copy_CN.UseVisualStyleBackColor = true;
+            this.btn_Copy_CN.Click += new System.EventHandler(this.btn_Copy_CN_Click);
+            // 
             // tBox_Leo_CN_CZK
             // 
             this.tBox_Leo_CN_CZK.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tBox_Leo_CN_CZK.Location = new System.Drawing.Point(176, 36);
+            this.tBox_Leo_CN_CZK.Location = new System.Drawing.Point(176, 22);
             this.tBox_Leo_CN_CZK.Name = "tBox_Leo_CN_CZK";
             this.tBox_Leo_CN_CZK.ReadOnly = true;
             this.tBox_Leo_CN_CZK.Size = new System.Drawing.Size(96, 23);
@@ -314,7 +327,7 @@ namespace CalcX
             // tBox_Leo_CN_CNY
             // 
             this.tBox_Leo_CN_CNY.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tBox_Leo_CN_CNY.Location = new System.Drawing.Point(48, 36);
+            this.tBox_Leo_CN_CNY.Location = new System.Drawing.Point(48, 22);
             this.tBox_Leo_CN_CNY.Name = "tBox_Leo_CN_CNY";
             this.tBox_Leo_CN_CNY.Size = new System.Drawing.Size(96, 23);
             this.tBox_Leo_CN_CNY.TabIndex = 5;
@@ -324,7 +337,7 @@ namespace CalcX
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(150, 39);
+            this.label2.Location = new System.Drawing.Point(150, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(20, 15);
             this.label2.TabIndex = 7;
@@ -335,7 +348,7 @@ namespace CalcX
             // 
             this.label_CN_CNY.AutoSize = true;
             this.label_CN_CNY.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label_CN_CNY.Location = new System.Drawing.Point(5, 37);
+            this.label_CN_CNY.Location = new System.Drawing.Point(5, 23);
             this.label_CN_CNY.Name = "label_CN_CNY";
             this.label_CN_CNY.Size = new System.Drawing.Size(38, 19);
             this.label_CN_CNY.TabIndex = 13;
@@ -346,7 +359,7 @@ namespace CalcX
             // 
             this.label_CN_CZK.AutoSize = true;
             this.label_CN_CZK.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label_CN_CZK.Location = new System.Drawing.Point(278, 37);
+            this.label_CN_CZK.Location = new System.Drawing.Point(278, 23);
             this.label_CN_CZK.Name = "label_CN_CZK";
             this.label_CN_CZK.Size = new System.Drawing.Size(36, 19);
             this.label_CN_CZK.TabIndex = 14;
@@ -355,6 +368,7 @@ namespace CalcX
             // 
             // gBox_Leo_HK
             // 
+            this.gBox_Leo_HK.Controls.Add(this.btn_Copy_HK);
             this.gBox_Leo_HK.Controls.Add(this.tBox_Leo_HK_CZK);
             this.gBox_Leo_HK.Controls.Add(this.tBox_Leo_HK_USD);
             this.gBox_Leo_HK.Controls.Add(this.label5);
@@ -367,10 +381,20 @@ namespace CalcX
             this.gBox_Leo_HK.TabStop = false;
             this.gBox_Leo_HK.Text = "Výpočet ceny Leoš - HK";
             // 
+            // btn_Copy_HK
+            // 
+            this.btn_Copy_HK.Location = new System.Drawing.Point(187, 51);
+            this.btn_Copy_HK.Name = "btn_Copy_HK";
+            this.btn_Copy_HK.Size = new System.Drawing.Size(75, 23);
+            this.btn_Copy_HK.TabIndex = 32;
+            this.btn_Copy_HK.Text = "Kopírovat";
+            this.btn_Copy_HK.UseVisualStyleBackColor = true;
+            this.btn_Copy_HK.Click += new System.EventHandler(this.btn_Copy_HK_Click);
+            // 
             // tBox_Leo_HK_CZK
             // 
             this.tBox_Leo_HK_CZK.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tBox_Leo_HK_CZK.Location = new System.Drawing.Point(176, 35);
+            this.tBox_Leo_HK_CZK.Location = new System.Drawing.Point(176, 22);
             this.tBox_Leo_HK_CZK.Name = "tBox_Leo_HK_CZK";
             this.tBox_Leo_HK_CZK.ReadOnly = true;
             this.tBox_Leo_HK_CZK.Size = new System.Drawing.Size(96, 23);
@@ -379,7 +403,7 @@ namespace CalcX
             // tBox_Leo_HK_USD
             // 
             this.tBox_Leo_HK_USD.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tBox_Leo_HK_USD.Location = new System.Drawing.Point(48, 35);
+            this.tBox_Leo_HK_USD.Location = new System.Drawing.Point(48, 22);
             this.tBox_Leo_HK_USD.Name = "tBox_Leo_HK_USD";
             this.tBox_Leo_HK_USD.Size = new System.Drawing.Size(96, 23);
             this.tBox_Leo_HK_USD.TabIndex = 9;
@@ -389,7 +413,7 @@ namespace CalcX
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(150, 38);
+            this.label5.Location = new System.Drawing.Point(150, 25);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(20, 15);
             this.label5.TabIndex = 11;
@@ -400,7 +424,7 @@ namespace CalcX
             // 
             this.label_HK_CZK.AutoSize = true;
             this.label_HK_CZK.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label_HK_CZK.Location = new System.Drawing.Point(278, 36);
+            this.label_HK_CZK.Location = new System.Drawing.Point(278, 23);
             this.label_HK_CZK.Name = "label_HK_CZK";
             this.label_HK_CZK.Size = new System.Drawing.Size(36, 19);
             this.label_HK_CZK.TabIndex = 15;
@@ -411,7 +435,7 @@ namespace CalcX
             // 
             this.label_HK_USD.AutoSize = true;
             this.label_HK_USD.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label_HK_USD.Location = new System.Drawing.Point(5, 36);
+            this.label_HK_USD.Location = new System.Drawing.Point(5, 23);
             this.label_HK_USD.Name = "label_HK_USD";
             this.label_HK_USD.Size = new System.Drawing.Size(37, 19);
             this.label_HK_USD.TabIndex = 16;
@@ -427,7 +451,7 @@ namespace CalcX
             this.tabPage_Kurzy_Marze.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_Kurzy_Marze.Size = new System.Drawing.Size(323, 479);
             this.tabPage_Kurzy_Marze.TabIndex = 2;
-            this.tabPage_Kurzy_Marze.Text = "Kurzy + 0,2CZK";
+            this.tabPage_Kurzy_Marze.Text = "Kurzy + 0,2 CZK";
             this.tabPage_Kurzy_Marze.UseVisualStyleBackColor = true;
             // 
             // tBox_Kurzy_Marze_Update
@@ -499,7 +523,7 @@ namespace CalcX
             this.MaximizeBox = false;
             this.Name = "CalcX";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CalcX - Vývojová verze";
+            this.Text = "CalcX - Vývojová verze  |  v0.3.3";
             this.Load += new System.EventHandler(this.CalcX_Load);
             this.tabPage.ResumeLayout(false);
             this.tabPage_Kalk.ResumeLayout(false);
@@ -553,6 +577,8 @@ namespace CalcX
         private System.Windows.Forms.TextBox tBox_Rezerva;
         private System.Windows.Forms.CheckBox chBox_Rezerva;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btn_Copy_CN;
+        private System.Windows.Forms.Button btn_Copy_HK;
     }
 }
 
