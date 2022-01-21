@@ -167,8 +167,7 @@ namespace CalcX
             // chBox_Rezerva
             // 
             this.chBox_Rezerva.AutoSize = true;
-            this.chBox_Rezerva.Checked = true;
-            this.chBox_Rezerva.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chBox_Rezerva.Enabled = false;
             this.chBox_Rezerva.Location = new System.Drawing.Point(13, 268);
             this.chBox_Rezerva.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.chBox_Rezerva.Name = "chBox_Rezerva";
@@ -470,11 +469,12 @@ namespace CalcX
             // 
             this.tBox_Kurzy_Marze_Kurzy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tBox_Kurzy_Marze_Kurzy.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tBox_Kurzy_Marze_Kurzy.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tBox_Kurzy_Marze_Kurzy.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tBox_Kurzy_Marze_Kurzy.Location = new System.Drawing.Point(5, 6);
             this.tBox_Kurzy_Marze_Kurzy.Multiline = true;
             this.tBox_Kurzy_Marze_Kurzy.Name = "tBox_Kurzy_Marze_Kurzy";
             this.tBox_Kurzy_Marze_Kurzy.ReadOnly = true;
+            this.tBox_Kurzy_Marze_Kurzy.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tBox_Kurzy_Marze_Kurzy.Size = new System.Drawing.Size(312, 442);
             this.tBox_Kurzy_Marze_Kurzy.TabIndex = 2;
             // 
@@ -505,11 +505,12 @@ namespace CalcX
             // 
             this.tBox_Kurzy_Kurzy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tBox_Kurzy_Kurzy.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tBox_Kurzy_Kurzy.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tBox_Kurzy_Kurzy.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tBox_Kurzy_Kurzy.Location = new System.Drawing.Point(5, 6);
             this.tBox_Kurzy_Kurzy.Multiline = true;
             this.tBox_Kurzy_Kurzy.Name = "tBox_Kurzy_Kurzy";
             this.tBox_Kurzy_Kurzy.ReadOnly = true;
+            this.tBox_Kurzy_Kurzy.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tBox_Kurzy_Kurzy.Size = new System.Drawing.Size(312, 442);
             this.tBox_Kurzy_Kurzy.TabIndex = 0;
             // 
@@ -524,7 +525,7 @@ namespace CalcX
             this.MaximizeBox = false;
             this.Name = "CalcX";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CalcX - Vývojová verze  |  v0.3.7";
+            this.Text = "CalcX - Vývojová verze  |  v0.4.0";
             this.Load += new System.EventHandler(this.CalcX_Load);
             this.tabPage.ResumeLayout(false);
             this.tabPage_Kalk.ResumeLayout(false);

@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,12 +8,12 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
 using System.Windows.Forms;
 
 namespace CalcX {
     public partial class CalcX : Form {
-
-        Meny meny;
 
         public CalcX() {
             InitializeComponent();
@@ -27,137 +25,65 @@ namespace CalcX {
             comBox_Rezerva.SelectedIndex = 0;
         }
 
-/* TODO:
- * pridat automatickou opravu prazdneho tBoxu -> na nulu
- * pocitat prevod podle dat ze struktury 
- * rozdelit combobox na dve (meny) a pak jen delit z leva do prava
- * prekopat na pouziti struktury ... nebo mozna na 3 pole? (currencyISO, original kurz, kurz s rezervou)
- */
+        public string folderDir = @"C:\CalcX";
+        public string fileDir = @"C:\CalcX\kurzy.xml";
+        Dictionary<string, double> exchange = new Dictionary<string, double>();
+        Dictionary<string, int> exchangeQty = new Dictionary<string, int>();
 
-        struct Meny {
-            public double aud;
-            public double bgn;
-            public double cad;
-            public double chf;
-            public double cny;
-            public double dkk;
-            public double eur;
-            public double gbp;
-            public double hrk;
-            public double huf;
-            public double jpy;
-            public double nok;
-            public double pln;
-            public double ron;
-            public double rub;
-            public double sek;
-            public double tryy;
-            public double usd;
+        public bool folderExists() {
+            string dir = folderDir;
+            // If directory does not exist, create it
+            if (!Directory.Exists(dir)) {
+                Directory.CreateDirectory(dir);
+            }
+            return true;
         }
 
-        public string webGetMethod(string URL) {
-            string jsonString = "";
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
-            request.Method = "GET";
-            request.Credentials = CredentialCache.DefaultCredentials;
-            ((HttpWebRequest)request).UserAgent = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 7.1; Trident/5.0)";
-            request.Accept = "/";
-            request.UseDefaultCredentials = true;
-            request.Proxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
-            request.ContentType = "application/x-www-form-urlencoded";
+        public void downloadXml(string URL) {
+            using (WebClient wc = new WebClient()) {
+                //wc.DownloadProgressChanged += wc_DownloadProgressChanged;
+                wc.DownloadFile(
+                    // Param1 = Link of file
+                    new System.Uri(URL),
+                    // Param2 = Path to save
+                    fileDir
+                );
+            }
+        }
 
-            WebResponse response = request.GetResponse();
-            StreamReader sr = new StreamReader(response.GetResponseStream());
-            jsonString = sr.ReadToEnd();
-            sr.Close();
-            return jsonString;
+        public void xmlParser() {
+            XmlDocument doc = new XmlDocument();
+
+            doc.Load(fileDir);
+
+            XmlNodeList nodeList = doc.GetElementsByTagName("kurzy");
+            string date = nodeList[0].Attributes[1].Value;
+            setUpdateDate(date);
+
+            nodeList = doc.GetElementsByTagName("radek");
+
+            foreach (XmlNode node in nodeList){
+                exchange.Add(node.Attributes[0].Value, Convert.ToDouble(node.Attributes[3].Value)); //mena | hodnota
+                exchangeQty.Add(node.Attributes[0].Value, Convert.ToInt16(node.Attributes[2].Value)); //mena | pocet
+            }
+        }
+
+        public void setUpdateDate(string date) {
+            tBox_Kurzy_Update.Text = tBox_Kurzy_Marze_Update.Text += "Aktualizace: " + date.Substring(0, 10);
+            //tBox_Kurzy_Update.Text = tBox_Kurzy_Marze_Update.Text += "Aktualizace:  " + DateTime.Parse(date);
         }
 
         public void mainHandler() {
-            string URL = "https://api.kb.cz/openapi/v1/exchange-rates";
-            string response = webGetMethod(URL);
-            var objects = JArray.Parse(response);
-            string datum = "";
-
-            foreach (JProperty root in objects[0]) {
-                foreach (JToken token in root) {
-/* !!!
- *  Potencialni problem v budoucnu - pevne dany pocet prvku -> (i < 18)
- */
-                    for (int i = 0; i < 18; i++) { 
-                        string output1 = JsonConvert.SerializeObject(token[i]);
-                        Currency deserializedProduct1 = JsonConvert.DeserializeObject<Currency>(output1);
-
-                        if (datum == "") datum = deserializedProduct1.RatesValidityDate;
-
-                        string mena = deserializedProduct1.CurrencyISO;
-
-                        switch (mena) {
-                            case "AUD":
-                                meny.aud = Convert.ToDouble(deserializedProduct1.Middle);
-                                break;
-                            case "BGN":
-                                meny.bgn = Convert.ToDouble(deserializedProduct1.Middle);
-                                break;
-                            case "CAD":
-                                meny.cad = Convert.ToDouble(deserializedProduct1.Middle);
-                                break;
-                            case "CHF":
-                                meny.chf = Convert.ToDouble(deserializedProduct1.Middle);
-                                break;
-                            case "CNY":
-                                meny.cny = Convert.ToDouble(deserializedProduct1.Middle);
-                                break;
-                            case "DKK":
-                                meny.dkk = Convert.ToDouble(deserializedProduct1.Middle);
-                                break;
-                            case "EUR":
-                                meny.eur = Convert.ToDouble(deserializedProduct1.Middle);
-                                break;
-                            case "GBP":
-                                meny.gbp = Convert.ToDouble(deserializedProduct1.Middle);
-                                break;
-                            case "HRK":
-                                meny.hrk = Convert.ToDouble(deserializedProduct1.Middle);
-                                break;
-                            case "HUF":
-                                meny.huf = Convert.ToDouble(deserializedProduct1.Middle);
-                                break;
-                            case "JPY":
-                                meny.jpy = Convert.ToDouble(deserializedProduct1.Middle);
-                                break;
-                            case "NOK":
-                                meny.nok = Convert.ToDouble(deserializedProduct1.Middle);
-                                break;
-                            case "PLN":
-                                meny.pln = Convert.ToDouble(deserializedProduct1.Middle);
-                                break;
-                            case "RON":
-                                meny.ron = Convert.ToDouble(deserializedProduct1.Middle);
-                                break;
-                            case "RUB":
-                                meny.rub = Convert.ToDouble(deserializedProduct1.Middle);
-                                break;
-                            case "SEK":
-                                meny.sek = Convert.ToDouble(deserializedProduct1.Middle);
-                                break;
-                            case "TRY":
-                                meny.tryy = Convert.ToDouble(deserializedProduct1.Middle);
-                                break;
-                            case "USD":
-                                meny.usd = Convert.ToDouble(deserializedProduct1.Middle);
-                                break;
-                            default:
-                                break;
-                        }
-                        
-                        tBox_Kurzy_Kurzy.Text += "1 " + deserializedProduct1.CurrencyISO + "  =  " + deserializedProduct1.Middle + " CZK" + Environment.NewLine;
-                        tBox_Kurzy_Marze_Kurzy.Text += "1 " + deserializedProduct1.CurrencyISO + "  =  " + Convert.ToString(Math.Round(Convert.ToDouble(deserializedProduct1.Middle) + 0.2, 4)) + " CZK" + Environment.NewLine;
-                    }
-                }
+            //kontrola, zda existuje misto pro ulozeni souboru XML - pokud neexistuje, vytvori jej
+            folderExists();
+            
+            string URL = "https://www.cnb.cz/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/denni_kurz.xml";
+            downloadXml(URL);
+            xmlParser();
+            foreach (var mena in exchange) {
+                tBox_Kurzy_Kurzy.Text += exchangeQty[mena.Key] + " " + mena.Key + "  =  " + mena.Value + " CZK" + Environment.NewLine;
+                tBox_Kurzy_Marze_Kurzy.Text += exchangeQty[mena.Key] + " " + mena.Key + "  =  " + Convert.ToString(Math.Round(Convert.ToDouble(mena.Value) + 0.2, 4)) + " CZK" + Environment.NewLine;
             }
-            tBox_Kurzy_Update.Text += "Aktualizace:  " + datum.Substring(0, 10);
-            tBox_Kurzy_Marze_Update.Text += "Aktualizace:  " + datum.Substring(0, 10);
         }
 
         public bool kontrolaVstupu(object sender, char znak) {
@@ -186,25 +112,25 @@ namespace CalcX {
 
                 switch (comBox_Meny.SelectedIndex) {
                     case 0:
-                        tBox_Prava_Mena.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leva_Mena.Text) * meny.usd, 4));
+                        tBox_Prava_Mena.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leva_Mena.Text) * exchange["USD"], 4));
                         break;
                     case 1:
-                        tBox_Prava_Mena.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leva_Mena.Text) / meny.usd, 4));
+                        tBox_Prava_Mena.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leva_Mena.Text) / exchange["USD"], 4));
                         break;
                     case 2:
-                        tBox_Prava_Mena.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leva_Mena.Text) * meny.eur, 4));
+                        tBox_Prava_Mena.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leva_Mena.Text) * exchange["EUR"], 4));
                         break;
                     case 3:
-                        tBox_Prava_Mena.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leva_Mena.Text) / meny.eur, 4));
+                        tBox_Prava_Mena.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leva_Mena.Text) / exchange["EUR"], 4));
                         break;
                     case 4:
-                        tBox_Prava_Mena.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leva_Mena.Text) * meny.cny, 4));
+                        tBox_Prava_Mena.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leva_Mena.Text) * exchange["CNY"], 4));
                         break;
                     case 5:
-                        tBox_Prava_Mena.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leva_Mena.Text) / meny.cny, 4));
+                        tBox_Prava_Mena.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leva_Mena.Text) / exchange["CNY"], 4));
                         break;
                     case 6:
-                        tBox_Prava_Mena.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leva_Mena.Text) * (meny.cny / meny.usd), 4));
+                        tBox_Prava_Mena.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leva_Mena.Text) * (exchange["CNY"] / exchange["USD"]), 4));
                         break;
                     default:
                         MessageBox.Show("Špatný vstup...", "Chyba!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -268,7 +194,7 @@ namespace CalcX {
 
         private void tBox_Leo_CN_CNY_TextChanged(object sender, EventArgs e) {
             if (tBox_Leo_CN_CNY.TextLength != 0) {
-                tBox_Leo_CN_CZK.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leo_CN_CNY.Text) * 1.05 * meny.cny, 4));
+                tBox_Leo_CN_CZK.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leo_CN_CNY.Text) * 1.05 * exchange["CNY"], 4));
             }
         }
 
@@ -279,7 +205,7 @@ namespace CalcX {
 
         private void tBox_Leo_HK_USD_TextChanged(object sender, EventArgs e) {
             if (tBox_Leo_HK_USD.TextLength != 0) {
-                tBox_Leo_HK_CZK.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leo_HK_USD.Text) * meny.usd * 1.13 * 1.05, 4));
+                tBox_Leo_HK_CZK.Text = Convert.ToString(Math.Round(Convert.ToDouble(tBox_Leo_HK_USD.Text) * exchange["USD"] * 1.13 * 1.05, 4));
             }
         }
 
